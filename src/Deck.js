@@ -31,12 +31,12 @@ class Deck extends React.Component {
         return deck;
     }
     _randomCard(deck) {
+        // sets the most recent deck back to the original variable name
+        const currentDeck = deck;
         // gets a random index. math.floor() rounds down, Math.random()* currentDeck.length
         //                                               multiplies random # between 0 & 1 (Math.random) by
                                                     //     the current length of the deck to get a random card.
         const randomIndex = Math.floor(Math.random()* currentDeck.length);
-        // sets the most recent deck back to the original variable name
-        const currentDeck = deck;
         // variable to get a random card by the index from randomIndex
         const randomCard = currentDeck[randomIndex];
         // removes the card from the deck so it will not be shown again

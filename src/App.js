@@ -8,18 +8,28 @@ class App extends React.Component{
         this.state = {
             deck: [],
             player: null,
-            dealer: null,
+            dealer: null
         }
     }
 
     _getWinner(Dealer, Player) {
         if(Dealer.count > Player.count) {
             return 'Dealer';
-        } else if (Dealer.count > Player.count){
+        } else if (Dealer.count < Player.count){
             return 'Player';
         } else {
             return 'Tie, It\'s a push';
         }
+    }
+    _getCount(cards) {
+        const rearrange = [];
+        cards.forEach(card => {
+            if(card.number === 'A') {
+                rearrange.push(card);
+            } else {
+                rearrange.unshift(card);
+            }
+        });
     }
 }
 export default App;
